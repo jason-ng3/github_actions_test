@@ -27,6 +27,10 @@ jobs:
 
     - name: Run validation script
       run: |
-        CHANGED_FILES=$(git diff --name-only $GITHUB_SHA $GITHUB_BASE_REF)
+        # Fetch the latest changes from the remote
+        git fetch origin
+
+        # Output the list of changed files between the current commit and the base branch
+        CHANGED_FILES=$(git diff --name-only origin/$GITHUB_BASE_REF...HEAD)
         echo "Changed files: $CHANGED_FILES"
         
