@@ -25,8 +25,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install pyyaml  # Ensure PyYAML is installed
 
-    - name: Modified files
+    - name: Fetch the latest changes for main (or base branch)
       run: |
-          git fetch origin main:main
-          git diff --name-only --diff-filter=d main~ main
+          # Fetch the base branch (without overwriting current branch)
+          git fetch origin main:refs/remotes/origin/main
+
+      - name: Get changed files
+      run: |
+          # Use the fetched branch for comparison
+          CHANGED_FILES=$(git diff --name-only --diff-filter=d origin/main...HEAD)
+          echo "Changed files: $CHANGED_FILES"
         
