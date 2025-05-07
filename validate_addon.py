@@ -6,7 +6,7 @@ import os
 
 def main():
     if len(sys.argv) != 2:
-        print("Usage: python validate_addon.py <changed_files.txt>")
+        print("Usage: python3 validate_addon.py <changed_files.txt>")
         sys.exit(1)
     
     # changed_files.txt (input from GitHub Actions workflow)
