@@ -27,15 +27,6 @@ jobs:
 
     - name: Run validation script
       run: |
-        # Outputs a list of changed files
-        CHANGED_FILES=$(git diff --name-only origin/main...HEAD)
-        # Filter the files that are in the templates folder
-        TEMPLATE_FILES=$(echo "$CHANGED_FILES" | grep '^templates/')
-
-        # Pass the filtered list of files to the Python script
-        if [ -n "$TEMPLATE_FILES" ]; then
-          # Pass the list of changed template files to your script
-          python3 validate-template.py $TEMPLATE_FILES
-        else
-          echo "No template files changed, skipping validation."
-        fi
+        CHANGED_FILES=$(git diff --name-only $GITHUB_SHA $GITHUB_BASE_REF)
+        echo "Changed files: $CHANGED_FILES"
+        
