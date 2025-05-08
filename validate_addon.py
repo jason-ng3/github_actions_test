@@ -16,8 +16,8 @@ def main():
     for changed_file in changed_files:
         try:
             with open(changed_file, "r") as f:
-                yaml.safe_load(f)
-                collection_slug = yaml.get("slug")
+                data = yaml.safe_load(f)
+                collection_slug = data['collection_slug']
             print(f"collection_slug", collection_slug)
         except Exception as e:
             print(f"Error parsing YAML file: {changed_file} - {e}")
