@@ -6,8 +6,6 @@ on:
       - main
     paths:
       - 'templates/**'
-
-on:
   pull_request:
     paths:
       - 'templates/**'
