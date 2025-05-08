@@ -19,9 +19,9 @@ def main():
                 yaml.safe_load(f)
                 collection_slug = yaml.get("slug")
             print(f"collection_slug", collection_slug)
-    except Exception as e:
-        print(f"Error parsing YAML file: {filepath} - {e}")
-        return False
+        except Exception as e:
+            print(f"Error parsing YAML file: {filepath} - {e}")
+            return False
 
     # # Step 1: Generate a list of changed_files from changed_files.txt
     # with open(changed_files_file) as f:
