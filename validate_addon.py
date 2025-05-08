@@ -11,7 +11,7 @@ def main():
     
     # changed_files.txt (input from GitHub Actions workflow)
     changed_files = sys.argv[1:]
-    print(type(changed_files, changed_files))
+    print(type(changed_files), changed_files)
 
     # # Step 1: Generate a list of changed_files from changed_files.txt
     # with open(changed_files_file) as f:
