@@ -13,6 +13,16 @@ def main():
     changed_files = sys.argv[1:]
     print(type(changed_files), changed_files)
 
+    for changed_file in changed_files:
+        try:
+            with open(filepath, "r") as f:
+                yaml.safe_load(f)
+                collection_slug = yaml.get("slug")
+            print(f"collection_slug", collection_slug)
+    except Exception as e:
+        print(f"Error parsing YAML file: {filepath} - {e}")
+        return False
+
     # # Step 1: Generate a list of changed_files from changed_files.txt
     # with open(changed_files_file) as f:
     #     changed_files = [line.strip() for line in f.readlines() if line.strip()]
