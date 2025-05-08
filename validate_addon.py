@@ -15,12 +15,12 @@ def main():
 
     for changed_file in changed_files:
         try:
-            with open(file, "r") as f:
+            with open(changed_file, "r") as f:
                 yaml.safe_load(f)
                 collection_slug = yaml.get("slug")
             print(f"collection_slug", collection_slug)
         except Exception as e:
-            print(f"Error parsing YAML file: {file} - {e}")
+            print(f"Error parsing YAML file: {changed_file} - {e}")
             return False
 
     # # Step 1: Generate a list of changed_files from changed_files.txt
