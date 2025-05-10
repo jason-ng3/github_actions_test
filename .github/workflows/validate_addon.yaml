@@ -37,9 +37,9 @@ jobs:
           sort -u | \
 
           # Collect all files from vendor-product directories
-          while read vendor-product; do
-            echo "Collecting files in templates/$vendor-product"
-            find "templates/$vendor-product" -type f
+          while read vendor_product; do
+            echo "Collecting files in templates/$vendor_product"
+            find "templates/$vendor_product" -type f
           done > all_files_to_validate.txt
 
           # Validate the collected list of files
