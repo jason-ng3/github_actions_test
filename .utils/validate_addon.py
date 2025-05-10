@@ -10,7 +10,7 @@ def main():
     #     sys.exit(1)
     
     # changed_files.txt (input from GitHub Actions workflow)
-    changed_files = sys.argv[1:]
+    changed_files = sys.argv[1]
     print(type(changed_files), changed_files)
 
     for changed_file in changed_files:
