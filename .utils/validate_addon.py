@@ -11,7 +11,12 @@ def main():
     
     # changed_files.txt (input from GitHub Actions workflow)
     changed_files = sys.argv[1]
-    print(type(changed_files), changed_files)
+    with open(changed_files, 'r') as f:
+        changed_files = [line.strip() for line in f if line.strip()]
+
+    print(f"Found {len(changed_files)} files to validate:")
+    for file in changed_files:
+        print(file)
 
     for changed_file in changed_files:
         try:
