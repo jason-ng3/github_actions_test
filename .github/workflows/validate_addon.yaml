@@ -4,11 +4,13 @@ on:
   push:
     branches:
       - main
+      - staging
     paths:
       - 'templates/**'
   pull_request:
     branches:
       - main
+      - staging
     paths:
       - 'templates/**'
 
@@ -24,10 +26,10 @@ jobs:
         with:
           files: |
             templates/**
-      - name: Run validation on changed vendor-product directory
+      - name: Run validation on all files within changed vendor-product directories 
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
-          # Output changes files
+          # Output changed files
           echo "Changed files: ${{ steps.changed-files.outputs.all_changed_files }}" | \
           
           # Extract vendor-product directories under templates/, sort & de-deduplicate
